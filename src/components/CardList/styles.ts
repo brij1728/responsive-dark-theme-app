@@ -8,5 +8,5 @@ export const StyledCardList = styled.div`
 `;
 
 export const RedCard = styled(Card)`
-  background-color: red;
+  background-color: ${({ theme }) => theme.colors.background};
 `;

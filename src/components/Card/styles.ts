@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCard = styled.div`
   width: 18rem;
-  border: 1px solid #cbcdcf;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
@@ -35,9 +35,9 @@ export const CardText = styled.p`
 export const CardLink = styled.a`
   font-size: 1.25rem;
   display: inline-block;
-  color: #fff;
-  background-color: #0c6dfc;
-  border-color: #0c6dfc;
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.background};
+  border-color: ${({ theme }) => theme.colors.primary};
   border-radius: 0.25rem;
   padding: 0.5rem 0.875rem;
   cursor: pointer;
@@ -47,7 +47,7 @@ export const CardLink = styled.a`
 
   &:hover,
   &:focus {
-    background-color: #0a5dd6;
-    border-color: #0957c9;
+    background-color: ${({ theme }) => theme.colors.background};
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
