@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 
+import { darkTheme } from "../../theme";
 import { lighten } from "polished";
 
 export const Header = styled.div`
@@ -32,9 +33,9 @@ export const ToggleContainer = styled.div<{ isOn: boolean }>`
   position: relative;
   width: 40px;
   height: 20px;
-  background: lightgray;
+  background: ${({ theme }) => theme.colors.primary};
   border-radius: 20px;
-  border: 1px solid grey;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   cursor: pointer;
   transition: all 200ms ease;
   ::after {
@@ -43,7 +44,7 @@ export const ToggleContainer = styled.div<{ isOn: boolean }>`
     content: "";
     top: 2px;
     left: 2px;
-    background: grey;
+    background: ${({ theme }) => theme.colors.background};
     width: 15px;
     height: 15px;
     border-radius: 100px;
@@ -51,11 +52,11 @@ export const ToggleContainer = styled.div<{ isOn: boolean }>`
   ${({ theme, isOn }) =>
     isOn &&
     css`
-      background: ${lighten(0.4, "blue")};
+      background: ${lighten(0.4, `${darkTheme.colors.background}`)};
       border-color: ${theme.colors.primary};
       ::after {
         left: 22px;
-        background: ${theme.colors.primary};
+        background: ${darkTheme.colors.background};
       }
     `}
 `;

@@ -4,16 +4,16 @@ import { Body, Header, ToggleContainer } from "./styles";
 
 import { Button } from "./components";
 import { Home } from "./pages";
-import { useToggleLightMode } from "./theme";
+import { useToggleDarkTheme } from "./theme";
 
 function App() {
-  const { isLightMode, toggleLightMode } = useToggleLightMode();
+  const { isDarkMode, toggleDarkMode } = useToggleDarkTheme();
 
   return (
     <div className="App">
       <Header>
         <h3>A Header!</h3>
-        <ToggleContainer isOn={isLightMode} onClick={toggleLightMode} />
+        <ToggleContainer isOn={isDarkMode} onClick={toggleDarkMode} />
       </Header>
       <Body>A Body!</Body>
       <Home />

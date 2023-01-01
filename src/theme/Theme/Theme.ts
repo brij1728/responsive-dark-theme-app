@@ -21,7 +21,7 @@ export const theme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
   colors: {
-    primary: "grey",
+    primary: "#fff",
     background: "grey",
     text: "#1a161b",
   },

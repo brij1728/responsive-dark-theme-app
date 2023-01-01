@@ -16,7 +16,7 @@ export const ButtonContainer = styled.div<{ secondary?: boolean }>`
   cursor: pointer;
   transition: all 200ms ease;
   :hover {
-    background: ${({ theme }) => lighten(0.1, `#FAA500`)};
+    background: ${({ theme }) => lighten(0.1, `${theme.colors.background}`)};
     font-size: 1.2rem;
   }
   ${({ theme, secondary }) =>

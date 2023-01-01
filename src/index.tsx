@@ -1,6 +1,6 @@
 import "./index.css";
 
-import { LightModeProvider, ThemeProvider } from "./theme";
+import { ThemeDarkProvider, ThemeProvider } from "./theme";
 
 import App from "./App";
 import React from "react";
@@ -12,11 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <LightModeProvider>
+    <ThemeDarkProvider>
       <ThemeProvider>
         <App />
       </ThemeProvider>
-    </LightModeProvider>{" "}
+    </ThemeDarkProvider>
   </React.StrictMode>
 );
 

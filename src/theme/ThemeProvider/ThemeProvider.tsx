@@ -4,35 +4,35 @@ import { darkTheme, theme } from "../Theme";
 import { ThemeProvider as SCThemeProvider } from "styled-components";
 
 interface LMProps {
-  isLightMode: boolean;
-  toggleLightMode: () => void;
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-const LightModeContext = createContext<LMProps>({
-  isLightMode: true,
-  toggleLightMode: () => {},
+const ThemeDarkContext = createContext<LMProps>({
+  isDarkMode: true,
+  toggleDarkMode: () => {},
 });
 
-export const LightModeProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const [isLightMode, setLightMode] = useState(true);
-  const toggleLightMode = () => setLightMode((prev) => !prev);
+export const ThemeDarkProvider: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  const [isDarkMode, setDarkMode] = useState(true);
+  const toggleDarkMode = () => setDarkMode((prev) => !prev);
   return (
-    <LightModeContext.Provider value={{ isLightMode, toggleLightMode }}>
+    <ThemeDarkContext.Provider value={{ isDarkMode, toggleDarkMode }}>
       {children}
-    </LightModeContext.Provider>
+    </ThemeDarkContext.Provider>
   );
 };
 
-export const useToggleLightMode = () => useContext(LightModeContext);
+export const useToggleDarkTheme = () => useContext(ThemeDarkContext);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const { isLightMode } = useToggleLightMode();
+  const { isDarkMode } = useToggleDarkTheme();
   return (
-    <SCThemeProvider theme={isLightMode ? theme : darkTheme}>
+    <SCThemeProvider theme={isDarkMode ? darkTheme : theme}>
       {children}
     </SCThemeProvider>
   );
